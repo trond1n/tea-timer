@@ -4,8 +4,11 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ConfigSetupModule } from './config/config.module';
+import { AppResolver } from './modules/app/app.resolver';
+import { TeaModule } from './modules/tea/tea.module';
 
 @Module({
+  providers: [AppResolver],
   imports: [
     ConfigSetupModule,
     TypeOrmModule.forRoot({
@@ -22,6 +25,7 @@ import { ConfigSetupModule } from './config/config.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    TeaModule, // Убедитесь, что модуль подключен
   ],
 })
 export class AppModule {}
