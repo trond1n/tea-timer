@@ -4,11 +4,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ConfigSetupModule } from './config/config.module';
-import { AppResolver } from './modules/app/app.resolver';
 import { TeaModule } from './modules/tea/tea.module';
 
 @Module({
-  providers: [AppResolver],
+  providers: [],
   imports: [
     ConfigSetupModule,
     TypeOrmModule.forRoot({

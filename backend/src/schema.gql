@@ -9,6 +9,5 @@ type Tea {
 }
 
 type Query {
-  hello: String!
   teas: [Tea!]!
 }
