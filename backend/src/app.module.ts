@@ -8,6 +8,7 @@ import { TeaModule } from './modules/tea/tea.module';
 import { UserModule } from './modules/users/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { InfusionModule } from './modules/brew-time/brew-time.module';
+import { RatingModule } from './modules/tea-rating/tea-rating.module';
 
 @Module({
   providers: [],
@@ -31,6 +32,7 @@ import { InfusionModule } from './modules/brew-time/brew-time.module';
     UserModule,
     AuthModule,
     InfusionModule,
+    RatingModule,
   ],
 })
 export class AppModule {}

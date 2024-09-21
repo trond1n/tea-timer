@@ -1,18 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Tea } from './tea.entity';
-import { User } from './user.entity';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 @Entity()
-export class TeaRating {
+export class Rating {
+  @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Tea)
-  tea: Tea;
-
-  @ManyToOne(() => User)
-  user: User;
-
+  @Field()
   @Column()
-  rating: number;
+  с_rating: number;
+
+  @Field()
+  @Column()
+  id_tea: number;
+
+  @Field()
+  @Column()
+  id_user: number;
 }
