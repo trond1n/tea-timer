@@ -9,6 +9,7 @@ import { UserModule } from './modules/users/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { InfusionModule } from './modules/brew-time/brew-time.module';
 import { RatingModule } from './modules/tea-rating/tea-rating.module';
+import { NoteModule } from './modules/tea-note/tea-note.module';
 
 @Module({
   providers: [],
@@ -33,6 +34,7 @@ import { RatingModule } from './modules/tea-rating/tea-rating.module';
     AuthModule,
     InfusionModule,
     RatingModule,
+    NoteModule,
   ],
 })
 export class AppModule {}
