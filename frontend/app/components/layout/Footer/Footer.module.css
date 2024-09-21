@@ -5,4 +5,22 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLinkContainer {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: #333;
+}
+
+.footerLink:hover {
+  color: #0070f3;
 }
