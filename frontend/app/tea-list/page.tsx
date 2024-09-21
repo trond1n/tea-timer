@@ -1,5 +1,5 @@
 
-export default function Timer() {
+export default function TeaList() {
   return (
    <>
    <h1>TEA TIMER</h1>
