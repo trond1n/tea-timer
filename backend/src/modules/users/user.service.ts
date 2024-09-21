@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/entities/user.entity';
+import { Mutation } from '@nestjs/graphql';
 
 @Injectable()
 export class UserService {
@@ -11,6 +12,7 @@ export class UserService {
     private usersRepository: Repository<User>,
   ) {}
 
+  @Mutation(() => User)
   async createUser(
     username: string,
     email: string,
