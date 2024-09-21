@@ -7,6 +7,7 @@ import { ConfigSetupModule } from './config/config.module';
 import { TeaModule } from './modules/tea/tea.module';
 import { UserModule } from './modules/users/user.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { InfusionModule } from './modules/brew-time/brew-time.module';
 
 @Module({
   providers: [],
@@ -29,6 +30,7 @@ import { AuthModule } from './modules/auth/auth.module';
     TeaModule,
     UserModule,
     AuthModule,
+    InfusionModule,
   ],
 })
 export class AppModule {}

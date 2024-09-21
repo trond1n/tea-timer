@@ -1,6 +1,7 @@
 // src/entities/tea.entity.ts
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Infusion } from './brew-time.entity';
 
 @ObjectType()
 @Entity()
@@ -13,7 +14,10 @@ export class Tea {
   @Column()
   name: string;
 
-  @Field() // Убедитесь, что это поле определено
+  @Field()
   @Column()
-  type: string; // Если вы хотите иметь это поле в GraphQL типе
+  type: string;
+
+  @OneToMany(() => Infusion, (infusion) => infusion.tea)
+  infusions: Infusion[];
 }
