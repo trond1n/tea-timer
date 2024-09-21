@@ -8,6 +8,22 @@ type Tea {
   type: String!
 }
 
+type User {
+  id: Float!
+  username: String!
+  email: String!
+  created_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   teas: [Tea!]!
+}
+
+type Mutation {
+  register(username: String!, email: String!, password: String!): User!
 }

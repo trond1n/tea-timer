@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ConfigSetupModule } from './config/config.module';
 import { TeaModule } from './modules/tea/tea.module';
+import { UserModule } from './modules/users/user.module';
 
 @Module({
   providers: [],
@@ -24,7 +25,8 @@ import { TeaModule } from './modules/tea/tea.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
-    TeaModule, // Убедитесь, что модуль подключен
+    TeaModule,
+    UserModule,
   ],
 })
 export class AppModule {}
