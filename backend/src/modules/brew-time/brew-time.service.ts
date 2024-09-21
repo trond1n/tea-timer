@@ -11,6 +11,8 @@ export class InfusionService {
   ) {}
 
   async getInfusionsByTeaId(teaId: number): Promise<Infusion[]> {
-    return this.infusionRepository.find({ where: { tea: { id: teaId } } });
+    return this.infusionRepository.find({
+      where: { id_tea: teaId },
+    });
   }
 }

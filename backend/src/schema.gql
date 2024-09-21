@@ -20,8 +20,16 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Infusion {
+  id: Int!
+  c_infusion_number: Float!
+  c_infusion_time: Float!
+  id_tea: Float!
+}
+
 type Query {
   teas: [Tea!]!
+  getInfusions(teaId: Int!): [Infusion!]!
 }
 
 type Mutation {

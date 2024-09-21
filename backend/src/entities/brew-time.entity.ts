@@ -1,17 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Tea } from './tea.entity';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 @Entity()
 export class Infusion {
+  @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Field()
   @Column()
-  infusionNumber: number;
+  c_infusion_number: number;
 
+  @Field()
   @Column()
-  infusionTime: number;
+  c_infusion_time: number;
 
-  @ManyToOne(() => Tea, (tea) => tea.infusions)
-  tea: Tea;
+  @Field()
+  @Column()
+  id_tea: number;
 }

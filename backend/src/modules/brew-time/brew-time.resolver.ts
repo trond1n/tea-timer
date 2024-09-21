@@ -1,4 +1,4 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { Infusion } from 'src/entities/brew-time.entity';
 import { InfusionService } from './brew-time.service';
 
@@ -7,7 +7,7 @@ export class InfusionResolver {
   constructor(private infusionService: InfusionService) {}
 
   @Query(() => [Infusion])
-  async getInfusions(@Args('teaId') teaId: number): Promise<Infusion[]> {
+  async getInfusions(@Args('teaId', { type: () => Int }) teaId: number) {
     return this.infusionService.getInfusionsByTeaId(teaId);
   }
 }
