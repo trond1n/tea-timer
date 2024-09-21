@@ -1,0 +1,26 @@
+.tableContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Три колонки для таблицы */
+    gap: 10px; /* Промежутки между ячейками */
+    padding: 20px;
+}
+
+.tableHeader {
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    display: contents; /* Чтобы заголовок располагался в сетке */
+}
+
+.tableBody {
+    display: contents; /* Для отображения дочерних элементов в том же контексте сетки */
+}
+
+.tableRow {
+    display: contents; /* Чтобы строки отображались в сетке */
+}
+
+.tableBody div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Граница для строк */
+}
