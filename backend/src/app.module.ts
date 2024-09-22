@@ -10,6 +10,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { InfusionModule } from './modules/brew-time/brew-time.module';
 import { RatingModule } from './modules/tea-rating/tea-rating.module';
 import { NoteModule } from './modules/tea-note/tea-note.module';
+import { PasswordModule } from './modules/password/password.module';
 
 @Module({
   providers: [],
@@ -35,6 +36,7 @@ import { NoteModule } from './modules/tea-note/tea-note.module';
     InfusionModule,
     RatingModule,
     NoteModule,
+    PasswordModule,
   ],
 })
 export class AppModule {}
