@@ -10,7 +10,7 @@ export class Rating {
 
   @Field()
   @Column()
-  с_rating: number;
+  c_rating: number;
 
   @Field()
   @Column()

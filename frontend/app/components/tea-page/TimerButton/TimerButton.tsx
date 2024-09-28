@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import styles from './TimerButton.module.css';
 
-const TimerButton = () => {
-  return (
-    <div>TimerButton</div>
-  )
+interface TimerButtonProps {
+  id: number
 }
 
-export default TimerButton
+const TimerButton: React.FC<TimerButtonProps> = ({ id }) => {
+  return (
+   <a href={"/timer/"+id}>Заварить!</a>
+  );
+};
+
+export default TimerButton;

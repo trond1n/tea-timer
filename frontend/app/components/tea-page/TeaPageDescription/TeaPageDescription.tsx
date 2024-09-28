@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import styles from './TeaPageDescription.module.css';
 
-const TeaPageRating = () => {
-  return (
-    <div>TeaPageRating</div>
-  )
+interface TeaPageDescriptionProps {
+  description: string; 
 }
 
-export default TeaPageRating
+const TeaPageDescription: React.FC<TeaPageDescriptionProps> = ({ description }) => {
+  return (
+    <p className={styles.description}>{description}</p> 
+  );
+};
+
+export default TeaPageDescription;

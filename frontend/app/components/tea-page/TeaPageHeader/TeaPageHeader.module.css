@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    align-items: flex-end;
+    padding: 20px; /* отступы внутри header */
+  }
+  
+  .variety {
+    opacity: 0.5;
+    font-size: 1.2rem; /* размер шрифта для variety */
+  }
+  
+  .name {
+    font-size: 2rem; /* размер шрифта для name */
+    font-weight: bold; /* выделение имени */
+  }
+  

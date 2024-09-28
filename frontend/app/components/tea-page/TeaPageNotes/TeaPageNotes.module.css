@@ -1,0 +1,25 @@
+.notes {
+  margin: 20px 0; 
+}
+
+.noNotes {
+  text-align: center; 
+}
+
+.notesList {
+  list-style: none; 
+  padding: 0;
+}
+
+.note { 
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 10px; 
+  border-radius: 5px;
+}
+
+.button {
+  padding: 10px 15px;
+  margin-top: 10px; 
+  cursor: pointer; 
+}

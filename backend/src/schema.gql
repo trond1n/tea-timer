@@ -27,12 +27,29 @@ type Infusion {
   id_tea: Float!
 }
 
+type Rating {
+  id: Int!
+  c_rating: Float!
+  id_tea: Float!
+  id_user: Float!
+}
+
+type Note {
+  id: Int!
+  c_rating: Float!
+  id_tea: Float!
+  c_text_: Float!
+}
+
 type Query {
   teas: [Tea!]!
   getInfusions(teaId: Int!): [Infusion!]!
+  getRatings(teaId: Int!): [Rating!]!
+  getNotes(teaId: Int!): [Note!]!
 }
 
 type Mutation {
   createUser: User!
   login: String!
+  resetPassword(email: String!, newPassword: String!): String!
 }

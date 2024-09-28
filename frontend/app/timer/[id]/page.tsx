@@ -2,13 +2,13 @@ import TimerHeader from "@/app/components/timer/TimerHeader/TimerHeader";
 import { NextPage } from "next";
 import Timer from "../page";
 
-interface TeaPageProps {
+interface TimerPageProps {
   params: {
     id: number;
   };
 }
 
-const TeaPage: NextPage<TeaPageProps> = ({ params }) => {
+const TimerPage: NextPage<TimerPageProps> = ({ params }) => {
   const { id } = params;
 
   return (
@@ -19,4 +19,4 @@ const TeaPage: NextPage<TeaPageProps> = ({ params }) => {
   );
 };
 
-export default TeaPage;
+export default TimerPage;
