@@ -14,5 +14,7 @@ export class TeaService {
     return this.teasRepository.find();
   }
 
-  // добавьте методы для создания, обновления и удаления чая
+  findOne(id: number): Promise<Tea> {
+    return this.teasRepository.findOne({ where: { id } });
+  }
 }

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Infusion } from 'src/entities/brew-time.entity';
-import { InfusionResolver } from './brew-time.resolver';
-import { InfusionService } from './brew-time.service';
+import { InfusionResolver } from './infusion.resolver';
+import { InfusionService } from './infusion.service';
+import { Infusion } from 'src/entities/infusion.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Infusion])],

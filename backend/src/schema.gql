@@ -3,9 +3,13 @@
 # ------------------------------------------------------
 
 type Tea {
-  id: Int!
-  name: String!
-  type: String!
+  id: Float!
+  cName: String!
+  idType: String!
+  minBrewTime: Float!
+  maxBrewTime: Float
+  brewingTemperature: Float
+  numbersOfBrews: Float
 }
 
 type User {
@@ -22,9 +26,9 @@ scalar DateTime
 
 type Infusion {
   id: Int!
-  c_infusion_number: Float!
-  c_infusion_time: Float!
-  id_tea: Float!
+  infusionNumber: Int!
+  infusionTime: Int!
+  teaId: Int!
 }
 
 type Rating {
@@ -42,14 +46,15 @@ type Note {
 }
 
 type Query {
-  teas: [Tea!]!
+  getTeas: [Tea!]!
+  getTea(teaId: Int!): Tea
   getInfusions(teaId: Int!): [Infusion!]!
   getRatings(teaId: Int!): [Rating!]!
   getNotes(teaId: Int!): [Note!]!
 }
 
 type Mutation {
-  createUser: User!
+  register(username: String!, email: String!, password: String!): User!
   login: String!
   resetPassword(email: String!, newPassword: String!): String!
 }

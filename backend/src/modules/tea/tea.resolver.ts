@@ -1,4 +1,4 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { Tea } from 'src/entities/tea.entity';
 import { TeaService } from './tea.service';
 
@@ -6,10 +6,13 @@ import { TeaService } from './tea.service';
 export class TeaResolver {
   constructor(private teaService: TeaService) {}
 
-  @Query(() => [Tea])
-  teas() {
+  @Query(() => [Tea]) // Метод для получения всех чаев
+  getTeas() {
     return this.teaService.findAll();
   }
 
-  // добавьте другие запросы и мутации
+  @Query(() => Tea, { nullable: true }) // Метод для получения одного чая по teaId
+  getTea(@Args('teaId', { type: () => Int }) teaId: number) {
+    return this.teaService.findOne(teaId);
+  }
 }

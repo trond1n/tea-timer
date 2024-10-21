@@ -7,7 +7,7 @@ import { ConfigSetupModule } from './config/config.module';
 import { TeaModule } from './modules/tea/tea.module';
 import { UserModule } from './modules/users/user.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { InfusionModule } from './modules/brew-time/brew-time.module';
+import { InfusionModule } from './modules/infusion/infusion.module';
 import { RatingModule } from './modules/tea-rating/tea-rating.module';
 import { NoteModule } from './modules/tea-note/tea-note.module';
 import { PasswordModule } from './modules/password/password.module';

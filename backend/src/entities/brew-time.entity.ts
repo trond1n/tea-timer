@@ -1,22 +1,30 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
+import { Tea } from './tea.entity'; // Импорт сущности Tea
 
-@ObjectType()
-@Entity()
-export class Infusion {
-  @Field(() => Int)
+@Entity('brew_time')
+export class BrewTime {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field()
-  @Column()
-  c_infusion_number: number;
+  @Column({ name: 'tea_id', type: 'int', nullable: true })
+  teaId: number;
 
-  @Field()
-  @Column()
-  c_infusion_time: number;
+  @Column({ name: 'optimal_brew_time', type: 'int', nullable: true })
+  optimalBrewTime: number;
 
-  @Field()
-  @Column()
-  id_tea: number;
+  @Column({ name: 'infusion_number', type: 'int', nullable: true })
+  infusionNumber: number;
+
+  @Column({ name: 'infusion_time', type: 'int', nullable: true })
+  infusionTime: number;
+
+  @ManyToOne(() => Tea) // Связь с сущностью Tea
+  @JoinColumn({ name: 'tea_id' }) // Указываем внешний ключ
+  tea: Tea;
 }

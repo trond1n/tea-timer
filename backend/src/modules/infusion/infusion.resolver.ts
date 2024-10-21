@@ -1,6 +1,6 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql';
-import { Infusion } from 'src/entities/brew-time.entity';
-import { InfusionService } from './brew-time.service';
+import { InfusionService } from './infusion.service';
+import { Infusion } from 'src/entities/infusion.entity';
 
 @Resolver(() => Infusion)
 export class InfusionResolver {
