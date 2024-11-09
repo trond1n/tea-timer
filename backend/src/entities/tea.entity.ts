@@ -31,4 +31,8 @@ export class Tea {
   @Field({ nullable: true })
   @Column({ name: 'numbers_of_brews', type: 'int', nullable: true })
   numbersOfBrews: number | null;
+
+  @Field()
+  @Column({ name: 'c_description', nullable: true })
+  description: string;
 }

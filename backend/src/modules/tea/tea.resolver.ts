@@ -1,6 +1,7 @@
-import { Resolver, Query, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int, Mutation } from '@nestjs/graphql';
 import { Tea } from 'src/entities/tea.entity';
 import { TeaService } from './tea.service';
+import { CreateTeaDto } from 'src/dto/CreateTeaDto';
 
 @Resolver(() => Tea)
 export class TeaResolver {
@@ -17,5 +18,13 @@ export class TeaResolver {
   }) // Метод для получения одного чая по teaId
   getTea(@Args('teaId', { type: () => Int }) teaId: number) {
     return this.teaService.findOne(teaId);
+  }
+
+  // Резолвер для добавления чая
+  @Mutation(() => Tea)
+  async createTea(
+    @Args('createTeaDto') createTeaDto: CreateTeaDto,
+  ): Promise<Tea> {
+    return this.teaService.createTea(createTeaDto);
   }
 }

@@ -15,9 +15,6 @@ export class BrewTime {
   @Column({ name: 'tea_id', type: 'int', nullable: true })
   teaId: number;
 
-  @Column({ name: 'optimal_brew_time', type: 'int', nullable: true })
-  optimalBrewTime: number;
-
   @Column({ name: 'infusion_number', type: 'int', nullable: true })
   infusionNumber: number;
 

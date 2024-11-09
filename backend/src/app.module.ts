@@ -12,6 +12,7 @@ import { RatingModule } from './modules/tea-rating/tea-rating.module';
 import { NoteModule } from './modules/tea-note/tea-note.module';
 import { PasswordModule } from './modules/password/password.module';
 import { BrewNoteModule } from './modules/brewing-note/brewing-note.module';
+import { BrewTimeModule } from './modules/brewing-time/brewing-time.module';
 
 @Module({
   providers: [],
@@ -39,6 +40,7 @@ import { BrewNoteModule } from './modules/brewing-note/brewing-note.module';
     NoteModule,
     BrewNoteModule,
     PasswordModule,
+    BrewTimeModule,
   ],
 })
 export class AppModule {}
