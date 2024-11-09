@@ -11,6 +11,7 @@ import { InfusionModule } from './modules/infusion/infusion.module';
 import { RatingModule } from './modules/tea-rating/tea-rating.module';
 import { NoteModule } from './modules/tea-note/tea-note.module';
 import { PasswordModule } from './modules/password/password.module';
+import { BrewNoteModule } from './modules/brewing-note/brewing-note.module';
 
 @Module({
   providers: [],
@@ -36,6 +37,7 @@ import { PasswordModule } from './modules/password/password.module';
     InfusionModule,
     RatingModule,
     NoteModule,
+    BrewNoteModule,
     PasswordModule,
   ],
 })

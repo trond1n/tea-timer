@@ -15,4 +15,17 @@ export class InfusionService {
       where: { teaId: teaId },
     });
   }
+
+  async createInfusion(
+    teaId: number,
+    infusionNumber: number,
+    infusionTime: number,
+  ): Promise<Infusion> {
+    const newInfusion = this.infusionRepository.create({
+      teaId,
+      infusionNumber,
+      infusionTime,
+    });
+    return this.infusionRepository.save(newInfusion);
+  }
 }

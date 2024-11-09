@@ -6,12 +6,15 @@ import { TeaService } from './tea.service';
 export class TeaResolver {
   constructor(private teaService: TeaService) {}
 
-  @Query(() => [Tea]) // Метод для получения всех чаев
+  @Query(() => [Tea], { description: 'Метод для получения всех чаев' })
   getTeas() {
     return this.teaService.findAll();
   }
 
-  @Query(() => Tea, { nullable: true }) // Метод для получения одного чая по teaId
+  @Query(() => Tea, {
+    description: 'Метод для получения одного чая по teaId',
+    nullable: true,
+  }) // Метод для получения одного чая по teaId
   getTea(@Args('teaId', { type: () => Int }) teaId: number) {
     return this.teaService.findOne(teaId);
   }
