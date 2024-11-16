@@ -1,0 +1,10 @@
+.container {
+  padding: 24px 32px;
+}
+.textarea {
+  width: 363px;
+  height: 120px;
+  border-radius: 8px ;
+  border: 1px solid #e4e4e7;
+  padding: 16px;
+}

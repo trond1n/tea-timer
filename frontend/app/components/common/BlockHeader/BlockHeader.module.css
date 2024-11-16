@@ -1,0 +1,47 @@
+.innerHeader {
+  padding: 16px 32px 16px 32px;
+  /* border-width: 0px 1px 0px 0px;
+  border-style: solid;
+  border-color: #e4e4e7; */
+  /* border-left: 1px solid #e4e4e7; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.innerHeaderTitle {
+  margin: 0;
+  font-family: "Source Serif 4";
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 31.2px;
+  letter-spacing: 0.4099999964237213px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.innerHeaderIcons {
+  display: flex;
+  gap: 16px;
+}
+
+.innerHeaderIconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.innerHeaderIconButton:hover {
+  color: #000;
+}
+.addIcon{
+  margin-top: 150px;
+}
+
+.border{
+ border-left: 1px solid #e4e4e7;
+}

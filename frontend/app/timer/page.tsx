@@ -1,8 +1,0 @@
-
-export default function Timer() {
-  return (
-   <>
-   <h1>TEA TIMER</h1>
-   </>
-  );
-}

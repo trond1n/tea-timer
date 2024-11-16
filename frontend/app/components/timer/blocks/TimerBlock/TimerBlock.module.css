@@ -1,0 +1,74 @@
+.timerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timer {
+    position: relative;
+  }
+  
+  .timerCircle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .time {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .timerBall {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000; /* Цвет шарика */
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 50%; /* Шарик будет вращаться по краю */
+    transform: translate(-50%, -50%); /* Центрируем шарик */
+    transition: transform 1s linear;
+  }
+  
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+  }
+  
+  .toggleButton,
+  .adjustButton {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .toggleButton {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .adjustButton {
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+  }
+  
+  .adjustButton:hover {
+    background-color: #ddd;
+  }
+  
+  .toggleButton:hover {
+    background-color: #45a049;
+  }
+  

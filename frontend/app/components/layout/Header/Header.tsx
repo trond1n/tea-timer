@@ -2,28 +2,19 @@ import styles from "./Header.module.css";
 
 const Header = () => (
   <header className={styles.header}>
-    <ul className={styles.menuList}>
-      <li>
-        <a href="/tea-list" className={styles.menuItem}>
-          Каталог
-        </a>
-      </li>
-      <li>
-        <a href="/login" className={styles.menuItem}>
-          Логин
-        </a>
-      </li>
-      <li>
-        <a href="/about" className={styles.menuItem}>
-          О проекте
-        </a>
-      </li>
-    </ul>
+    <div className={styles.wrapper}>
+   <div className={styles.headerLogo}>
+    <h1 className={styles.headerLogoText}>Tea Timer</h1>
+   </div>
     <div>
-      <a href="/user" className={styles.menuItem}>
-        Профиль
+      <a href="/user" className={styles.headerLink}>
+        Зарегистрироваться
       </a>
-      <button>Выход</button>
+      <a href="/user" className={styles.headerLink}>
+        Войти
+      </a>
+     
+    </div>
     </div>
   </header>
 );

@@ -1,8 +1,13 @@
+import Spills from "./components/spills/Spills";
+import Timer from "./components/timer/Timer";
+import TimersList from "./components/timers-list/TimersList";
+
 export default function Home() {
-  return (
-    <div>
-      <h1>Welcome to Tea Timer App</h1>
-      <p>Start your tea ceremony now!</p>
+  return <>
+    <div className="wrapper">
+      <TimersList/>
+      <Timer/>
+      <Spills/>
     </div>
-  );
+  </>;
 }
