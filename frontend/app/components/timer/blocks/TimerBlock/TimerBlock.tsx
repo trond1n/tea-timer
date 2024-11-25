@@ -2,70 +2,90 @@ import React, { useState, useEffect } from "react";
 import styles from "./TimerBlock.module.css";
 
 const TimerBlock: React.FC = () => {
-  const initialTime = 300; // Начальное время (например, 5 минут = 300 секунд)
-  const [time, setTime] = useState(initialTime); // Время в секундах
-  const [isRunning, setIsRunning] = useState(false); // Статус таймера
-  const [timerInterval, setTimerInterval] = useState<NodeJS.Timeout | null>(null); // Интервал таймера
+  const [countdown, setCountdown] = useState<number>(30); // Общее время в секундах
+  const [timeLeft, setTimeLeft] = useState<number>(0); // Оставшееся время
+  const [isRunning, setIsRunning] = useState<boolean>(false); // Статус таймера
 
-  // Функция для старта/остановки таймера
-  const toggleTimer = () => {
-    if (isRunning) {
-      // Остановить таймер
-      if (timerInterval) {
-        clearInterval(timerInterval);
-      }
-      setIsRunning(false);
-    } else {
-      // Запустить таймер
-      const interval = setInterval(() => {
-        setTime((prevTime) => Math.max(prevTime - 1, 0)); // Уменьшаем время каждую секунду
-      }, 1000);
-      setTimerInterval(interval);
-      setIsRunning(true);
-    }
-  };
-
-  // Очистить таймер при размонтировании компонента
   useEffect(() => {
-    return () => {
-      if (timerInterval) {
-        clearInterval(timerInterval);
-      }
-    };
-  }, [timerInterval]); // Зависимость от timerInterval, чтобы очищать таймер при его изменении
+    let timer: NodeJS.Timeout | null = null;
 
-  // Форматирование времени в формате m:ss
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    if (isRunning && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prev) => Math.max(prev - 1, 0));
+      }, 1000);
+    } else if (timeLeft === 0 && isRunning) {
+      setIsRunning(false);
+    }
+
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [isRunning, timeLeft]);
+
+  const updateCountdown = (amount: number) => {
+    const newCountdown = Math.max(countdown + amount, 0);
+    setCountdown(newCountdown);
+    setTimeLeft(newCountdown); // Обновляем оставшееся время, чтобы синхронизировать
   };
 
-  // Данные для анимации шарика (в зависимости от времени)
-  const rotation = ((initialTime - time) / initialTime) * 360;
+  const toggleTimer = () => {
+    if (!isRunning) {
+      setTimeLeft(countdown); // При старте устанавливаем текущее значение
+    }
+    setIsRunning((prev) => !prev);
+  };
+
+  // Рассчитываем угол поворота (360° за всё время)
+  const secondsAngle =
+    timeLeft > 0 ? ((countdown - timeLeft) / countdown) * 360 : 0;
 
   return (
-    <div className={styles.timerContainer}>
-      <div className={styles.timer}>
-        <div className={styles.timerCircle}>
+    <div className={styles.container}>
+      <div className={styles.time}>
+        <div
+          className={styles.circle}
+          style={{ "--color": "#04fc43" } as React.CSSProperties}
+        >
           <div
-            className={styles.timerBall}
-            style={{
-              transform: `rotate(${rotation}deg) translateX(90px) rotate(-${rotation}deg)`, // Двигаем шарик по границе круга
-            }}
+            className={styles.dots}
+            style={{ transform: `rotate(${secondsAngle}deg)` }}
           />
-          <div className={styles.time}>{formatTime(time)}</div>
+          <svg>
+            <circle cx="124" cy="124" r="124"></circle>
+            <circle
+              cx="124"
+              cy="124"
+              r="124"
+              className={styles.secondsCircle}
+              style={{
+                strokeDashoffset: countdown
+                  ? 810 - (810 * (countdown - timeLeft)) / countdown
+                  : 810,
+              }}
+            ></circle>
+          </svg>
+          <div className={styles.seconds}>
+            {timeLeft > 0 ? timeLeft : countdown}
+          </div>
         </div>
       </div>
       <div className={styles.controls}>
-        <button onClick={toggleTimer} className={styles.toggleButton}>
-          {isRunning ? "Stop" : "Start"}
-        </button>
-        <button onClick={() => setTime((prevTime) => Math.max(prevTime - 10, 0))} className={styles.adjustButton}>
-          -10s
-        </button>
-        <button onClick={() => setTime((prevTime) => prevTime + 10)} className={styles.adjustButton}>
-          +10s
+        <div className={styles.regulators}>
+          <button
+            className={`${styles.button} ${styles.minus}`}
+            onClick={() => updateCountdown(10)}
+          >
+            +10 сек
+          </button>
+          <button
+            className={`${styles.button} ${styles.plus}`}
+            onClick={() => updateCountdown(-10)}
+          >
+            -10 сек
+          </button>
+        </div>
+        <button className={styles.handlerButton} onClick={toggleTimer}>
+          {isRunning ? "Стоп" : "Старт"}
         </button>
       </div>
     </div>

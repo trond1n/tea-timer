@@ -14,7 +14,7 @@ const BlockHeader: React.FC<BlockHeaderProps> = ({
   border,
 }) => {
   const renderIcon = (name: string) => {
-    return <i className={`fas fa-${name} ${name}Icon`}></i>;
+    return <div className={`${styles[`${name}Icon`]}`}><i className={`fas fa-${name}`}></i></div>;
   };
 
   return (
