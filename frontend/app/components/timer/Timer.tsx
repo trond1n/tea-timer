@@ -5,14 +5,18 @@ import styles from "./Timer.module.css";
 import BlockHeader from "../common/BlockHeader/BlockHeader";
 import TeaInfo from "./blocks/TeaInfo/TeaInfo";
 
-const Timer = () => {
+interface TimerProps {
+  onOpen: () => void;
+}
+
+const Timer: React.FC<TimerProps> = ({ onOpen }) => {
   return (
     <div className={styles.container}>
       <BlockHeader
         title="Зеленый"
         icons={[
           { name: "pen-to-square", onClick: () => console.log("изменить") },
-          { name: "circle-question", onClick: () => console.log("вопросики") },
+          { name: "circle-question", onClick: () => onOpen() },
         ]}
         border
       />
